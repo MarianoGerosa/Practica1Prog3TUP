@@ -1,17 +1,25 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Ej4Controller : ControllerBase
+    public class EJ4Controller : ControllerBase
     {
         [HttpGet()]
-        public int Get([FromQuery] int var1, [FromQuery] int var2)
+        public string Get([FromQuery] int number1, [FromQuery] int number2)
         {
-            int mayor = var1 + var2;
-            return mayor;
+            if (number1 > number2)
+            {
+                return $"El número mayor es {number1}";
+            }
+            else if (number1 < number2)
+            {
+                return $"El número mayor es {number2}";
+            }
+            return $"Los numeros son iguales";
         }
     }
 }
